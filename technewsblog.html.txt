@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech News Blog</title>
+    <style>
+        /* Your existing CSS styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Bookman Old Style', sans-serif;
+            font-size: 20px; /* Add 'px' for font size */
+        }
+
+        header {
+            background: url('https://th.bing.com/th/id/R.17b33d455795f7955f374703ec5db7ec?rik=NxSsDRRowb8cGw&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fngPEfyE.jpg&ehk=H8cSGsfjlgPQaG1%2f3Ozt2CphyeUbP7kRRn7Dc8mef9s%3d&risl=&pid=ImgRaw&r=0.jpg') center/cover;
+            color: white;
+            padding: 100px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        nav {
+            background-color: black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: line;
+            color: white;
+            font-family: 'bodoni mt', sans-serif;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 25px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #A9B1BC;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .article-image {
+            max-width: 50%;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #moreButton {
+            display: none;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Tech News Blog</h1>
+    </header>
+
+    <nav>
+        <a href="#" id="home">Home</a>
+        <a href="#" id="news">News</a>
+        <a href="#" id="about">About</a>
+    </nav>
+
+    <section id="content">
+        <!-- Content will be dynamically loaded here using JavaScript -->
+    </section>
+
+    <footer>
+        &copy; 2023 Tech News Blog
+    </footer>
+
+    <button id="moreButton" onclick="loadMoreNews()">More News</button>
+
+    <script>
+        // Sample article data (replace with your actual data)
+        let homeArticles = [
+            { title: 'Dramatic Return? Sam Altman to Return as OpenAI CEO ', content: 'After days of chaos at ChatGPT creator OpenAI, the company says it has “in principle” reached an agreement for ousted CEO Sam Altman to return to his post...<b> To know more click news</b> ', image: 'https://media.wired.com/photos/655cf58564de22446963f396/master/w_1920,c_limit/Sam-Altman-OpenAI-Return-Business-1258197415.jpg' },
+            { title: 'Black Friday 2023: The latest tech deals on Apple, Lenovo, Dyson, Vitamix, and more', content: 'The best savings on tech from laptops to headphones, TVs, Herman Miller chairs, and more... <b>To know more click news</b>', image: 'https://www.wowktv.com/wp-content/uploads/sites/52/2019/11/black-friday-sales-red-tags.jpg?w=2560&h=1440&crop=1.jpg' },
+            { title: 'Government warns Facebook, YouTube to enforce rules to deter deepfakes', content: 'India\'s IT ministry said in a press statement all platforms had agreed to align their content guidelines with government rules...<b>To know more click news</b>', image: 'https://images.indianexpress.com/2023/11/Social-media-Pixabay.jpg?w=640.jpg' }
+        ];
+
+        let newsArticles = [
+            { title: 'Sam Altman to Return as OpenAI CEO', content: 'After days of corporate chaos that has captivated the tech industry, OpenAI cofounder and recently fired CEO Sam Altman is set to return to his position. In a statement posted to X late Tuesday, OpenAI said it had reached an agreement “in principle” for Altman to return to OpenAI as CEO. OpenAI, headquartered in San Francisco, revealed the potential reinstatement of Altman along with the formation of a new initial board comprising prominent figures from the tech industry. The company\'s statement, cited in the AP report, stated, "We have agreed in principle for Sam Altman to return to OpenAI as CEO with a new initial board made up of former Salesforce co-CEO Bret Taylor, former U.S. Treasury Secretary Larry Summers, and Quora CEO Adam D\'Angelo". The previous board of directors at OpenAI, including D\'Angelo, had declined to provide specific reasons for Altman\'s dismissal, leading to internal discord and external pressure from the startup\'s investors over the weekend. The decision to terminate Altman without clear notice prompted an employee-driven petition demanding the resignations of the board members and Altman\'s reinstatement.', additionalContent:'OpenAI, initially founded as a nonprofit organization with the goal of developing safe artificial general intelligence, transitioned to a for-profit company while maintaining its nonprofit board structure. Following Altman\'s departure, with only four members remaining on the board, a change in composition and new leadership became necessary. Amidst the leadership crisis, Greg Brockman made a notable appearance on social media, announcing the launch of ChatGPT Voice, a feature aimed at enhancing the ChatGPT experience. This announcement coincided with a lighthearted demonstration from OpenAI\'s main account on X, emphasizing workforce unity while subtly acknowledging the recent upheaval.', image: 'https://lifeboat.com/blog.images/openai-to-soon-release-a-new-open-source-ai-model3.jpg' },
+            { title: 'Black Friday 2023: Ecommerce companies, brands line up for Black Friday rush', content: 'Black Friday symbolizes an annual shopping frenzy, erupting the day after Thanksgiving in the United States. Black Friday, celebrated globally but especially in the USA falls on the final Friday of November. This year it is today, 24th November. Originating there, it\'s a pre-Christmas sale filled with special deals and surprise discounts at various stores and online platforms. Exploring its history and traditions helps uncover the essence of this consumer-friendly event. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac quam id urna efficitur auctor.', additionalContent: 'Read more at: <a href="http://timesofindia.indiatimes.com/articleshow/105467027.cms?utm_source=contentofinterest&utm_medium=text&utm_campaign=cppst" target="_blank">Times of India</a>', image: 'https://static.vecteezy.com/system/resources/previews/004/145/813/large_2x/red-color-black-friday-banner-template-design-template-design-for-sales-promotion-free-vector.jpg' },
+            { title: 'Social media companies have seven days to tweak terms of use around deepfakes: Rajeev Chandrasekhar', content: 'India\’s government on Friday warned social media firms including Facebook and YouTube to repeatedly remind users that local laws prohibit them from posting deepfakes and content that spreads obscenity or misinformation, two sources told Reuters.The warning was conveyed by deputy IT minister Rajeev Chandrasekhar in a closed-door meeting where he said many companies had not updated their usage terms despite 2022 rules that prohibit content “harmful” to children, obscene or that “impersonates another person”.<br>It comes amid growing concerns over deepfakes – realistic yet fabricated videos created by artificial intelligence (AI) algorithms trained on online footage – which a top minister this week said this week India is drawing up rules to address.', additionalContent:'Chandrasekhar said the companies must raise awareness of the rules by reminding users every time they log in that they cannot post such content, or by issuing reminders.He said otherwise he will issue directions forcing them to do so, said the two sources, who declined to be named as the meeting was private.', additionalContent:'Chandrasekhar said the companies must raise awareness of the rules by reminding users every time they log in that they cannot post such content, or by issuing reminders.He said otherwise he will issue directions forcing them to do so, said the two sources, who declined to be named as the meeting was private.Facebook and Chandrasekhar did not immediately respond to a request for comment.Alphabet Inc\’s Google, which owns YouTube, said in a statement it was committed to responsible AI development and has robust policies and systems to identify and remove harmful content across its products and platforms.The Indian government and Prime Minister Narendra Modi have raised concerns over deepfakes in recent days.During a virtual summit of G20 nations on Wednesday, Prime Minister Modi called on global leaders to jointly work towards regulating AI, and raised concerns over the negative impact of deepfakes on society.Countries across the world are racing to draw up rules to regulate AI. India has been tightening regulations of social media companies, which count the South Asian nation as a top growth market.Last year, the government privately criticized the companies for not removing what it described as fake news on their sites, which it said had forced it to order  content takedowns. ', image:'https://th.bing.com/th?id=OIF.3RKqyqhg7ZvtVZqeGZ6%2b7g&w=295&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7.jpg' },  
+            { title: 'X may lose up to $75 million in revenue as more advertisers pull out', content: 'X said on Friday $11 million in revenue was at risk and the exact figure fluctuated as some advertisers returned to the platform and others increased spending, according to the report.Elon Musk-owned social media company X could lose as much as $75 million in advertising revenue by the end of the year as dozens of major brands pause their marketing campaigns, the New York Times reported on Friday.<br>Musk backing an antisemitic post on the platform last week has led several companies including Walt Disney and Warner Bros Discovery to pause their advertisements on the site formerly called Twitter.<br>X has struck back and sued media watchdog group Media Matters, alleging the organization defamed the platform with a report that said ads for major brands including Apple and Oracle had appeared next to posts touting Adolf Hitler and the Nazi party.', additionalContent:'Internal documents viewed by The New York Times this week list more than 200 ad units of companies from the likes of Airbnb, Amazon, Coca-Cola and Microsoft, many of which have halted or are considering pausing their ads on the social network, the report said.X said on Friday $11 million in revenue was at risk and the exact figure fluctuated as some advertisers returned to the platform and others increased spending, according to the report.The company did not immediately respond to a Reuters request for comment.<br>Advertisers have fled X since Musk bought it in October 2022 and reduced content moderation, resulting in a sharp rise in hate speech on the site, according to civil rights groups.The platform’s U.S. ad revenue has declined at least 55% year-over-year each month since Musk’s takeover, Reuters previously reported.<br>First published on: 25-11-2023 at 11:04 IST', image: 'https://www.lankaxpress.com/wp-content/uploads/2023/09/image-62.png' },
+            { title: 'Aditya L1 spacecraft is nearing its final phase', content: 'Aditya L1 spacecraft, India\'s first space-based mission to study the Sun, is nearing its final phase, and maneuvers to enter the L1 point are expected to be completed by January 7, 2024, according to ISRO Chairman S Somanath."Aditya is on the way. I think it has reached almost its final phase," the ISRO chief told PTI on the sidelines of an event organised at VSSC to commemorate the 60th year of the First Sounding Rocket Launch. He said that the last preparations for the spacecraft\'s entry into the L1 point are currently underway incrementally.', additionalContent: 'Possibly by January 7th, the final maneuvers will be done for entering into the L1 point," Somanath added.<br>Aditya L1 was successfully launched on September 2 from the Satish Dhawan Space Centre (SDSC) in Sri harikota. The spacecraft, after traveling about 1.5 million km from Earth over 125 days, is expected to be placed in a Halo orbit around the Lagrangian point L1, considered closest to the Sun. Among other tasks, it will capture and transmit pictures of the Sun for scientific experiments.',image: 'https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1kuZv4.img?w=499&h=332&m=6.jpg' },
+            { title: 'Elon Musk reveals when X Premium subscribers will get access to Grok AI and it is sooner than you think', content:'This year has been all about generative AI with chatbots like OpenAI\'s ChatGPT, Google\'s Bard, and Microsoft\'s Bing AI gaining popularity. While ChatGPT was launched almost a year back, Bing and Bard were unveiled in February this year. And now, Elon Musk is all set to enter the generative AI chatbot market with Grok AI.Earlier this month, the X owner had announced Grok AI chatbot. Unveiling the same, XAI team had said that it will answer spicy questions chatbots a void. The chatbot will also have a rebellious streak and won\'t be a good fit for those who lack a sense of humour. And now, Musk has shared a tentative timeline for Grok AI\'s launch. And it is sooner than you think.We could be interacting the GrokAI as soon as next week. However, Musk didn\'t specify an exact date. It is to be noted that GrokAI will only be available to X Premium users. This means that those who don\'t pay to use X won\'t be available to use the new AI chatbot.Announcing GrokAI\'s launch next week, Musk wrote, Grok should be available to all X Premium+ subscribers next week.', additionalContent:'Announcing its upcoming AI assistant that will answer questions with wit and also has a rebellious streak,the XAI team wrote in a tweet that those who lack a sense of humour shouldn\’t use the AI service.The team\'s post read, Grok is an AI modeled after the Hitchhiker\’s Guide to the Galaxy, so intended to answer almost anything and, far harder, even suggest what questions to ask. Grok is designed to answer questions with a bit of wit and has a rebellious streak, so please don\’t use it if you hate humor.The team then added that Grok will have real-time knowledge of the world due to X. This could mean that the AI system will derive its knowledge from the users publicly available Twitter posts.In addition to this, the AI system will also answer spicy questions that are rejected by most other AI systems.The product is still in beta stage and has been trained for just 2 months. The xAI team added that it will improve rapidly with each passing week with your help.', image: 'https://akm-img-a-in.tosshub.com/indiatoday/styles/medium_crop_simple/public/2023-11/musk_0.png?VersionId=Ohrv3hvJzID7mTm7R.ifjtOj7DrmjjAz.jpg' },
+            { title: 'Startups should consider hiring fractional AI officers', content: 'The AI skills gap is real. A recent study from Randstad, the recruitment company, found that job posts referencing generative AI skills have risen by 2,000% since March. It\’s the third most sought-after skill set and one of the shortest in supply.The logical step for enterprise companies is to appoint a chief AI officer (CAIO) to kickstart their efforts. Earlier this year, Dylan Fox penned an opinion piece arguing that every Fortune 500 business needs a CAIO.Companies that do not integrate AI into their product, operations, and business strategy will struggle to remain competitive — and fall behind those that do, Fox wrote.It\’s a compelling argument that makes sense at the enterprise level. But what about everyone else? Startups and scale-ups need to integrate AI just as badly — especially if they\’re trying to fundraise in this AI moment. However, they often don\’t have the resources or the organizational structure to support a senior executive focused exclusively on AI.', additionalContent:'This is where a fractional AI officer comes in. Fractional leadership is a recent workforce trend: seasoned executives with subject matter expertise working across two or more clients simultaneously, lending their talents to rapidly growing companies that need their specific skill set but can’t afford it full-time.Here\’s the kicker: Having a fractional AI officer is superior to hiring full-time in one crucial respect. AI — especially generative AI — is such a new technology that breadth of experience across multiple companies gives fractional executives an edge over their full-time counterparts.',image: 'https://techcrunch.com/wp-content/uploads/2023/11/GettyImages-1419366342.jpg?w=1390&crop=1.jpg' }
+            // Add more news articles as needed
+        ];
+
+        let aboutContent = `
+            <p><b>Welcome to Tech News Blog!</b> We are dedicated to bringing you the latest and most exciting news in the world of technology. Whether you're interested in AI breakthroughs, gadget reviews, or updates on space exploration, you'll find it all here.  your go-to source for the latest in technology and innovation. Our mission is to keep you informed about the rapidly evolving world of technology, bringing you news, insights, and updates on the most exciting developments in the tech industry.<br><b> Why Tech News Blog?</b>Technology is transforming the way we live, work, and interact with the world. It\'s crucial to stay up-to-date with the latest trends, breakthroughs, and challenges in the tech landscape. Tech News Blog is built with the aim of providing you with accurate, timely, and engaging content that sheds light on the dynamic nature of technology.<br>Perspective and Approach At Tech News Blog, we believe in presenting tech news with a balanced perspective. We strive to deliver content that is not only informative but also accessible to readers with varying levels of technical expertise. Whether you\'re a tech enthusiast, a professional in the industry, or someone looking to understand the impact of technology on society, our articles are tailored to cater to your interests.<br><b>Stay Connected!!!</b> Explore our Home and News sections to discover a curated selection of articles covering a wide range of tech topics. Feel free to reach out to us if you have suggestions, feedback, or if there\'s a specific tech topic you\'d like us to cover.  We\'re here to make your journey through the tech landscape as engaging and insightful as possible.<b>Stay informed, stay tech-savvy!</b></p>
+        `;
+
+        const contentSection = document.getElementById('content');
+        const moreButton = document.getElementById('moreButton');
+
+        // Function to display articles
+        function displayArticles(category, numArticles) {
+            contentSection.innerHTML = ''; // Clear existing content
+
+            // Add the "Breaking News" title and underline
+            if (category === 'home') {
+                const breakingNewsTitle = document.createElement('h2');
+                breakingNewsTitle.innerText = 'Breaking News';
+                breakingNewsTitle.style.textDecoration = 'underline';
+                contentSection.appendChild(breakingNewsTitle);
+            }
+
+            let selectedArticles;
+            if (category === 'home') {
+                selectedArticles = homeArticles.slice(0, numArticles);
+            } else if (category === 'news') {
+                selectedArticles = newsArticles.slice(0, numArticles);
+            } else if (category === 'about') {
+                contentSection.innerHTML = aboutContent;
+                moreButton.style.display = 'none'; // Hide "More News" button on the about page
+                return;
+            }
+
+            selectedArticles.forEach((article, index) => {
+                const articleElement = document.createElement('article');
+                articleElement.innerHTML = `
+                    <h2>${article.title}</h2>
+                    <p>${article.content}</p>
+                    <img src="${article.image}" alt="${article.title}" class="article-image">
+                    ${category === 'home' ? '' : `<p>${article.additionalContent}</p>`}
+                `;
+                contentSection.appendChild(articleElement);
+            });
+
+            // Show "More News" button only for the 'news' category if there are more articles
+            moreButton.style.display = category === 'news' && numArticles < newsArticles.length ? 'block' : 'none';
+        }
+
+        // Function to load more news articles
+        function loadMoreNews() {
+            const numArticlesDisplayed = contentSection.querySelectorAll('article').length;
+            displayArticles('news', numArticlesDisplayed + 2); // Display two more news articles
+        }
+
+        // Event listeners for navigation links
+        document.getElementById('home').addEventListener('click', () => displayArticles('home', 5));
+        document.getElementById('news').addEventListener('click', () => displayArticles('news', 5));
+        document.getElementById('about').addEventListener('click', () => displayArticles('about'));
+
+        // Initial display
+        displayArticles('home', 5);
+    </script>
+
+</body>
+
+</html>
